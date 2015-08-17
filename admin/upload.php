@@ -24,6 +24,7 @@ try {
         $video->video_title= $_POST['video_title'];
         $video->video_description= $_POST['video_description'];
         $video->set_file($_FILES['video_filename']);
+        $video->video_tag =$_POST['video_tag'];
 
         if($video->save()){
             $message="video uploaded Succesfully";
@@ -60,16 +61,23 @@ try {
                         <?php echo $message;?>
                         <form action="upload.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
+                                <label for="caption">Title</label>
                                 <input type="text" name="video_title" class="form-control">
                             </div>
                             <div class="form-group">
+                                <label for="caption">Upload Video</label>
                                 <input type="file" name="video_filename" class="form-control">
                             </div>
                             <div class="form-group">
+                                <label for="caption">Description</label>
                                 <textarea name="video_description" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" >
+                                <label for="caption">Tag</label>
+                                <input type="text" name="video_tag" class="form-control" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-primary  " >
                             </div>
                         </form>
                     </div>

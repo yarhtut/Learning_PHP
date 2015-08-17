@@ -45,11 +45,11 @@
 
 
                             <tr>
-                                <td><video width="220" controls>
-                                        <source src="<?php echo $video->video_path(); ?>" type="video/mp4">
+                                <td><video class="thumbnail img-responsive" width="240" height="140" controls>
+                                        <source  src="<?php echo $video->video_path(); ?>" type="video/mp4">
                                     </video>
                                     <div class="videos_link">
-                                        <a href="delete_video.php/?id=<?php echo $video->id;?>">Delete</a>
+                                        <a href="delete_video.php?id=<?php echo $video->id;?>">Delete</a>
                                         <a href="edit_video.php?id=<?php echo $video->id;?>">Edit</a>
                                         <a href="#">View</a>
                                     </div>
