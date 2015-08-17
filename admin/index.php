@@ -1,5 +1,6 @@
 <?php
 require_once("includes/header.php");
+
 try {
     $currentUser = Cartalyst\Sentry\Facades\Native\Sentry::getUser();
 

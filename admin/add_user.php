@@ -1,4 +1,5 @@
 <?php include("includes/header.php");?>
+<?php require('../vendor/autoload.php'); ?>
 <?php if (isset($_POST['submit'])):
 
 // create group record

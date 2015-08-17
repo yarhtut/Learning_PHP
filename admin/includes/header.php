@@ -1,7 +1,7 @@
-<?php include_once("includes/init.php");?>
+<?php include_once("includes/init.php");
 
 
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +20,7 @@
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/admin_styles.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

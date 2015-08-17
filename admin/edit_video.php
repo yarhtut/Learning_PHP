@@ -1,4 +1,7 @@
-<?php include("includes/header.php");
+<?php include("includes/header.php");?>
+<?php require('../vendor/autoload.php'); ?>
+<?php
+
 
 
 if(empty($_GET['id'])){

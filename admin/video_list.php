@@ -1,6 +1,7 @@
 <?php include("includes/header.php"); ?>
 
 
+
 <?php
     $videos = Video::find_all();
 ?>

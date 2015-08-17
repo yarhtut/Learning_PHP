@@ -2,6 +2,7 @@
 if (isset($_GET['id'])) {
 // set up autoloader
   require_once("includes/header.php");
+  require('../vendor/autoload.php');
 
   // find user by id and delete
   try {
