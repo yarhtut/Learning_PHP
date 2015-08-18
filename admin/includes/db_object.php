@@ -82,7 +82,7 @@ class DB_object{
     //Save method
     //
     public  function save(){
-        return isset($this->id)? $this->update_user() : $this->create_user();
+        return isset($this->id)? $this->update() : $this->create();
     }
 
     //

@@ -19,10 +19,9 @@ class comment extends DB_object{
         if(!empty($video_id) && !empty($author) && !empty($body)){
             $comment = new Comment();
 
-            $comment->$video_id = $video_id;
-            $comment->$author = $author;
-            $comment->$body = $body;
-
+            $comment->video_id = $video_id;
+            $comment->author = $author;
+            $comment->body = $body;
 
             return $comment;
         }else{
@@ -38,5 +37,7 @@ class comment extends DB_object{
 
         return self::find_by_query($sql);
     }
+
+
 
 }
