@@ -1,0 +1,28 @@
+.top_carousel{
+    margin-top:-20px;
+    width:100%;
+}
+.top_carousel_locker{
+    margin-top:-60px;
+    width:100%;
+}
+.top_carousel img{
+     width:100%;
+ }
+.top_carousel_locker img{
+    width:100%;
+}
+.login_form{
+    width:400px;
+    margin: 0px auto ;
+    margin-top:10% ;
+}
+.author_name{
+    margin-top:22px;
+    padding-left:100px !important; ;
+
+}
+.video_size {
+    max-width:400px;
+    max-height:230px !important;
+}

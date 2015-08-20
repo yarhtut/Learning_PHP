@@ -9,11 +9,13 @@ class Session{
 
     private  $signed_in = false;
     public  $id;
+    public $count;
     //constructor
     function __construct(){
         //auto run session when it is called
         session_start();
         //call the method
+        $this->visitor_count();
         $this->check_the_login();
 
     }
@@ -25,6 +27,16 @@ class Session{
         if($user){
             $this->user_id = $_SESSION['id'] =$user->id;
             $this->signed_in = true;
+        }
+    }
+
+    public function visitor_count(){
+
+        if(isset($_SESSION['count'])){
+        return $this->count = $_SESSION['count']++;
+        }
+        else{
+            return $_SESSION['count'] = 1;
         }
     }
 

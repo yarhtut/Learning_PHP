@@ -2,6 +2,7 @@
         <hr>
 
         <!-- Footer -->
+        <div class="container-fluid">
         <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -11,8 +12,8 @@
             </div>
             <!-- /.row -->
         </footer>
+        </div>
 
-    </div>
     <!-- /.container -->
 
     <!-- jQuery -->

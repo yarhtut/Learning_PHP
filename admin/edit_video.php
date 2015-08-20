@@ -58,10 +58,10 @@ else{
                             </div>
                             <div class="form-group">
                                 <label for="caption">Video</label>
-                                <video width="120" controls>
-                                    <source src="<?php echo $video->video_path(); ?>" type="video/mp4">
+                                <video width="240" controls>
+                                    <source class="thumbnail"src="<?php echo $video->video_path(); ?>" type="video/mp4">
                                 </video>
-                                <input type="file" name="video_filename" class="form-control">
+                                <input type="file" name="video_filename" class="form-control" value="<?php echo $video->video_filename; ?>">
 
                             </div>
                             <div class="form-group">

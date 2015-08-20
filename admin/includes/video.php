@@ -98,4 +98,13 @@
                 return false;
             }
         }
+        public static function count_all_user(){
+            global $database;
+
+            $sql = "SELECT COUNT(*) FROM `users`";
+            $result_set = $database->query($sql);
+
+            $row = mysqli_fetch_array($result_set);
+            return array_shift($row);
+        }
     }

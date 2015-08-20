@@ -13,7 +13,7 @@ try {
         header("Location: ../login.php");
     }
     if (!$currentUser->hasAccess('view')) {
-        header("Location: ../video.php");
+        header("Location: ../training.php");
         throw new Exception ('You don\'t have permission to view this page.');
 
     }

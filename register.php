@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     }    
     
     echo 'User successfully registered but wait for the Admin Activation';
-    header("Location: video.php");
+    header("Location: training.php");
   } catch (Exception $e) {
     echo $e->getMessage();
     exit;

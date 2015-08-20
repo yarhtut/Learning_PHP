@@ -4,8 +4,7 @@
     require_once('admin/includes/init.php');
     require_once('includes/header.php');
 
-require ('vendor/autoload.php');
-require_once("admin/includes/db_login.php");
+
 //get current user
 $currentUser = Cartalyst\Sentry\Facades\Native\Sentry::getUser();
 
@@ -19,16 +18,16 @@ if(Cartalyst\Sentry\Facades\Native\Sentry::check()){
 }
 //check current user has access right
 if (!$currentUser->hasAccess('watch')) {
-    header("Location: ../training.php");
+    header("Location: login.php");
     throw new Exception ('You don\'t have permission to view this page.');
 
 }
 
     if(empty($_GET['id'])){
-        //redirect("index.php");
+        redirect("index.php");
     }
 
-    $video = Video::find_all();
+    $video = Video::find_by_id($_GET['id']);
 
 
     if(isset($_POST['submit'])){
@@ -51,13 +50,7 @@ if (!$currentUser->hasAccess('watch')) {
         $author = "";
         $body = "";
     }
-    //$comment = Comment::find_the_comment($video->id);
-
-    $page = $empty($_GET['page']) ? (int)$_GET['page']: 1;
-    //set items for each page;
-    $items_per_page = 2;
-    //assign to total count to the total list of database;
-    $items_total_count = Video::count_all_video();
+    $comment = Comment::find_the_comment($video->id);
 ?>
 
 
@@ -70,7 +63,7 @@ if (!$currentUser->hasAccess('watch')) {
             <div class="col-lg-8">
 
                 <!-- Blog Post -->
-                <?php foreach($video as $video):?>
+
 
                 <!-- Title -->
                 <div class="row">
@@ -90,7 +83,7 @@ if (!$currentUser->hasAccess('watch')) {
 
                 <div class="row">
 
-                <div class="col-lg-5 col-md-5">
+                <div class="col-lg-5 col-md-7">
                 <!-- Preview Image -->
                     <video class="thumbnail img-responsive"  controls>
                         <source  src="admin/<?php echo $video->video_path(); ?>" type="video/mp4">
@@ -106,21 +99,51 @@ if (!$currentUser->hasAccess('watch')) {
                 </div>
 
                 </div>
-                    <a class="btn btn-primary pull-right" href="detail_training.php?id=<?php echo $video->id;?>"> Read More >> </a>
-                    <br/>
+
 
                 <hr>
-                  <?php endforeach;?>
+
 
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
-
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form" method="post">
+                        <div class="form-group">
+                            <label for="author">Author:</label>
+                            <input  type="hidden" name="id" class="form-control" value="<?php echo $video->id; ?>"/>
+                            <input type="text" name="author" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <textarea name="body" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary">Comment</button>
+                    </form>
                 </div>
 
 
 
+                <!-- Posted Comments -->
+                <?php foreach ($comment as $comment):?>
+                    <hr>
+                <!-- Comment -->
+                <div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading"><?php echo $comment->author; ?>
+                            <small></small>
+                        </h4>
+                        <p><?php echo $comment->body; ?></p>
+                    </div>
+                </div>
 
+
+                <?php endforeach;?>
+            </div>
 
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
@@ -179,6 +202,4 @@ if (!$currentUser->hasAccess('watch')) {
         </div>
         <!-- /.row -->
 <?php include "includes/footer.php" ?>
-
-
 

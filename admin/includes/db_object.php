@@ -141,6 +141,25 @@ class DB_object{
         return(mysqli_affected_rows($database->db)  == 1)? true: false;
 
     }
-  
+
+    public static function count_all_video(){
+        global $database;
+
+        $sql = "SELECT COUNT(*) FROM `videos`";
+        $result_set = $database->query($sql);
+
+        $row = mysqli_fetch_array($result_set);
+        return array_shift($row);
+    }
+
+    public static function count_all_comment(){
+        global $database;
+
+        $sql = "SELECT COUNT(*) FROM `comments`";
+        $result_set = $database->query($sql);
+
+        $row = mysqli_fetch_array($result_set);
+        return array_shift($row);
+    }
     
 }

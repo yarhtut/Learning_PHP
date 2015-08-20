@@ -11,68 +11,118 @@
                     Dashboard Page
                     <small>Subheading</small>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-file"></i> Blank Page
-</li>
-                    </ol>
 
-                    <?php
+                    <div class="row">
 
-                    $found_user =  Video::find_by_id(3);
-                    echo $found_user->video_filename;
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-users fa-5x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge">
+                                                <?php echo Video::count_all_user(); ?>
+                                            </div>
+
+                                            <div>Users</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Total Users</span>
+                                        <span class="pull-right">View Details<i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-video-camera fa-5x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge"><?php echo Video::count_all_video(); ?></div>
+                                            <div>Video</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Total Video in Training</span>
+                                        <span class="pull-right">View Details<i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
 
-//
-//                        $user = new User();
-//                        $user->user_name="Example_username";
-//                        $user->user_password ="password";
-//                        $user->user_firstname= "Maen";
-//                        $user->user_lastname = "Tawarasi";
-//
-//                        $user->create_user();
-               // echo INCLUDES_PATH;
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-yellow">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-users fa-5x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge"><?php echo $session->count; ?></div>
+                                            <div>New Views</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <div class="panel-footer">
+
+                                        <span class="pull-left">Total User View Training</span>
+                                        <span class="pull-right">View Details<i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
 
-
-//                    $user = User::find_by_id(3);
-//                    $user->user_password = "123456456";
-//                    $user->update();
-//
-//                    $users = User::find_all();
-//                    foreach($users as $user){
-//                        echo $user->user_name;
-//                    }
-//                    $videos = Video::find_all();
-//                    foreach($videos as $video){
-//                        echo $video->video_title;
-//                    }
-//                    $video = new Video();
-//                    $video->video_title = "Training 2";
-//                    $video->video_description = "Admin is testing the video traing posts";
-//                    $video->create();
-
-                  /*  $user = User::find_user_by_id(2);
-                    $user->user_name= "asdf";
-                    $user->user_password= "123";
-                    $user->save();*/
-
-
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-red">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-support fa-5x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge"> <?php echo Comment::count_all_comment(); ?></div>
+                                            <div>Comments</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Total Comments</span>
+                                        <span class="pull-right">View Details<i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
 
-                    // call the User class method
-
-                   // $found_user = User::find_user_by_id(2);
-                    //$user = User::instantiation($found_user);
-
-                   // echo  $user->user_firstname;
-                    ?>
+                    </div> <!--First Row-->
 </div>
 </div>
 <!-- /.row -->
+           <!-- <div class="row">
+                <div id="piechart" style="width: 300px; height: 300px;"></div>
+            </div>-->
+
+
+
 
 </div>
 <!-- /.container-fluid -->

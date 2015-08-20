@@ -58,7 +58,7 @@ try {
                         Upload Page
                         <small>Subheading</small>
                     </h1>
-                    <div class="col-md-6">
+                    <div class="">
                         <?php echo $message;?>
                         <form action="upload.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
