@@ -6,6 +6,7 @@
 
 require ('vendor/autoload.php');
 require_once("admin/includes/db_login.php");
+
 //get current user
 $currentUser = Cartalyst\Sentry\Facades\Native\Sentry::getUser();
 
@@ -28,7 +29,7 @@ if (!$currentUser->hasAccess('watch')) {
         //redirect("index.php");
     }
 
-    $video = Video::find_all();
+
 
 
     if(isset($_POST['submit'])){
@@ -53,11 +54,26 @@ if (!$currentUser->hasAccess('watch')) {
     }
     //$comment = Comment::find_the_comment($video->id);
 
-    $page = $empty($_GET['page']) ? (int)$_GET['page']: 1;
+    $page = !empty($_GET['page'])? (int)$_GET['page']: 1;
     //set items for each page;
-    $items_per_page = 2;
+    $item_per_page = 2;
     //assign to total count to the total list of database;
-    $items_total_count = Video::count_all_video();
+    $item_total_count = Video::count_all_video();
+
+
+
+
+    $paginate = new Paginate($page, $item_per_page, $item_total_count);
+
+    $sql = "SELECT * FROM `videos` ";
+    $sql .= "LIMIT {$item_per_page} ";
+    $sql .= "OFFSET {$paginate->offset()}";
+
+
+    $video = Video::find_by_query($sql);
+
+
+
 ?>
 
 
@@ -118,58 +134,52 @@ if (!$currentUser->hasAccess('watch')) {
 
                 </div>
 
+                <div class="row">
+                    <ul class="pager">
+                        <?php
+                            if($paginate->page_total() > 1){
+                                if($paginate->has_next()){
+                                   ?>
+                                <li class="next"><a href="training.php?page=<?php echo $paginate->next();?>">Next</a></li>
+
+                                <?php
+                                }
+                                for ($i=1; $i<= $paginate->page_total(); $i++){
+
+                                    if($i == $paginate->current_page){
+                                        ?>
+                                        <li class="active"><a href="training.php?page=<?php echo $i;?>"><?php echo $i;?></a></li>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <li ><a href=""><?php echo $i;?></a></li>
+
+                                        <?php
+                                    }
+                                }
+                                ?>
 
 
 
+                                <?php
 
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+                                if($paginate->has_previous()){
+                                    ?>
+                                    <li class="previous"><a href="training.php?page=<?php echo $paginate->previous();?>">Previous</a></li>
 
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
+                                    <?php
+
+                                }
+                            }
+                        ?>
+
+
+
+                    </ul>
                 </div>
 
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                </div>
+
+
 
                 <!-- Side Widget Well -->
 

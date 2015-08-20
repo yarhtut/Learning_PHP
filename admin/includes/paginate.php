@@ -26,7 +26,7 @@ class Paginate{
     }
 
     public function page_total(){
-        return ceil($this->items_total_count/$this->itmes_per_page);
+        return ceil($this->item_total_count/$this->item_per_page);
     }
 
     public function has_previous(){
@@ -37,7 +37,7 @@ class Paginate{
         return $this->next() <= $this->page_total() ? true : false;
     }
 
-    public function offset(){
-        return ($this->current_page -1) * $this->items_per_page;
+    public  function offset(){
+        return ($this->current_page -1) * ($this->item_per_page);
     }
 }

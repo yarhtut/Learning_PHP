@@ -1,6 +1,8 @@
 
-
-.photo-info-box {
+.active_pagination{
+    background:rgba(44,125,125,0) !important;
+}
+.video-info-box {
 
  border: 1px solid #e5e5e5;
   -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
@@ -22,24 +24,24 @@
   
 
 
-.photo-info-box .box-inner {
+.video-info-box .box-inner {
 border-top: 1px solid #e5e5e5;
 background-color: #fff;
 padding: 6px;
 
 }
 
-.photo-info-box .box-inner .text {
+.video-info-box .box-inner .text {
 padding: 7px 9px 19px;
 
 }
 
-.photo-info-box .box-inner .data {
+.video-info-box .box-inner .data {
 
 	font-weight: bold;
 }
 
-.photo-info-box .info-box-footer{
+.video-info-box .info-box-footer{
 
 border-top: 1px solid #ddd;
 background-color: #ddd;
