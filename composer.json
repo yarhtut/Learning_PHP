@@ -1,6 +1,6 @@
 {
-    "name": "myapp/sentry",
-    "description": "Test",
+    "name": "yarhtut/Learning_PHP",
+    "description": "Learnign PHP by Yar",
     "require": {
         "cartalyst/sentry": "2.1",
         "illuminate/database": "4.0",
