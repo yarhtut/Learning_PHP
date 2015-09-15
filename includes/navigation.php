@@ -2,7 +2,7 @@
 
 <?php
 require_once('admin/includes/init.php');
-require ('vendor/autoload.php');
+
 require_once("admin/includes/db_login.php");
 //get current user
 $currentUser = Cartalyst\Sentry\Facades\Native\Sentry::getUser();

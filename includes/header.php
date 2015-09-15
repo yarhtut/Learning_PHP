@@ -31,8 +31,5 @@
 
 
 
-    <!-- Navigation -->
-<?php include("navigation.php"); ?>
 
-    <!-- Page Content  <div class="container"> -->
 

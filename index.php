@@ -1,6 +1,29 @@
+<?php
+/**
+ * Commenting is our friend yar....
+ * @author : Yar
+ * @date :
+ * @description :
+ *
+ * This file is our main bootstrap file
+ */
 
-<?php include "includes/header.php" ?>
+//settings
+define("INCLUDES_FOLDER","includes");      //where our include files are located
 
+
+//require our vendor autoloader
+require ('vendor/autoload.php');
+
+
+//include our header template
+require_once INCLUDES_FOLDER."/header.php";
+
+//require our navigation
+require_once INCLUDES_FOLDER."/navigation.php";
+
+
+?>
     <!-- Navigation -->
 <?php include "includes/navigation.php" ?>
 <div class="container-fluid top_carousel">
