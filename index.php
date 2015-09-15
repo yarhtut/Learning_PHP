@@ -7,13 +7,17 @@
  *
  * This file is our main bootstrap file
  */
+//for debugging purposes
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 
 //settings
 define("INCLUDES_FOLDER","includes");      //where our include files are located
 
 
 //require our vendor autoloader
-require ('vendor/autoload.php');
+require('vendor/autoload.php');
 
 
 //include our header template
